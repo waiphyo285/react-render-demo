@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
@@ -9,22 +8,24 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ArrowLeft, Database, RefreshCw, Plus, Trash2 } from "lucide-react";
 
 // Mock API functions
-const fetchUsers = async (): Promise<Array<{id: number, name: string, email: string}>> => {
-  await new Promise(resolve => setTimeout(resolve, 1000));
+const fetchUsers = async (): Promise<
+  Array<{ id: number; name: string; email: string }>
+> => {
+  await new Promise((resolve) => setTimeout(resolve, 1000));
   return [
     { id: 1, name: "John Doe", email: "john@example.com" },
     { id: 2, name: "Jane Smith", email: "jane@example.com" },
-    { id: 3, name: "Bob Johnson", email: "bob@example.com" }
+    { id: 3, name: "Bob Johnson", email: "bob@example.com" },
   ];
 };
 
-const addUser = async (user: {name: string, email: string}) => {
-  await new Promise(resolve => setTimeout(resolve, 500));
+const addUser = async (user: { name: string; email: string }) => {
+  await new Promise((resolve) => setTimeout(resolve, 500));
   return { id: Date.now(), ...user };
 };
 
 const deleteUser = async (id: number) => {
-  await new Promise(resolve => setTimeout(resolve, 500));
+  await new Promise((resolve) => setTimeout(resolve, 500));
   return id;
 };
 
@@ -36,8 +37,13 @@ const DataFetching = () => {
   const queryClient = useQueryClient();
 
   // React Query example
-  const { data: users, isLoading, error, refetch } = useQuery({
-    queryKey: ['users'],
+  const {
+    data: users,
+    isLoading,
+    error,
+    refetch,
+  } = useQuery({
+    queryKey: ["users"],
     queryFn: fetchUsers,
   });
 
@@ -45,7 +51,7 @@ const DataFetching = () => {
   const addUserMutation = useMutation({
     mutationFn: addUser,
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['users'] });
+      queryClient.invalidateQueries({ queryKey: ["users"] });
       setNewUser({ name: "", email: "" });
     },
   });
@@ -54,7 +60,7 @@ const DataFetching = () => {
   const deleteUserMutation = useMutation({
     mutationFn: deleteUser,
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['users'] });
+      queryClient.invalidateQueries({ queryKey: ["users"] });
     },
   });
 
@@ -62,11 +68,13 @@ const DataFetching = () => {
   const fetchManualData = async () => {
     setIsManualLoading(true);
     try {
-      const response = await fetch('https://jsonplaceholder.typicode.com/posts?_limit=5');
+      const response = await fetch(
+        "https://jsonplaceholder.typicode.com/posts?_limit=5"
+      );
       const data = await response.json();
       setManualData(data);
     } catch (error) {
-      console.error('Failed to fetch data:', error);
+      console.error("Failed to fetch data:", error);
     } finally {
       setIsManualLoading(false);
     }
@@ -79,11 +87,13 @@ const DataFetching = () => {
   useEffect(() => {
     const fetchEffectData = async () => {
       try {
-        const response = await fetch('https://jsonplaceholder.typicode.com/comments?_limit=3');
+        const response = await fetch(
+          "https://jsonplaceholder.typicode.com/comments?_limit=3"
+        );
         const data = await response.json();
         setEffectData(data);
       } catch (error) {
-        console.error('Failed to fetch data:', error);
+        console.error("Failed to fetch data:", error);
       } finally {
         setEffectLoading(false);
       }
@@ -103,13 +113,17 @@ const DataFetching = () => {
             </Button>
           </Link>
           <div className="flex items-center gap-3 mb-4">
-            <Badge variant="secondary" className="bg-orange-100 text-orange-800">
+            <h1 className="text-3xl font-bold">Data Fetching Examples</h1>
+            <Badge
+              variant="secondary"
+              className="bg-orange-100 text-orange-800"
+            >
               Data Fetching Patterns
             </Badge>
-            <h1 className="text-3xl font-bold">Data Fetching Examples</h1>
           </div>
           <p className="text-gray-600">
-            Different approaches to fetching and managing data in React applications.
+            Different approaches to fetching and managing data in React
+            applications.
           </p>
         </div>
 
@@ -139,15 +153,22 @@ const DataFetching = () => {
                   </div>
 
                   {isLoading && <div>Loading users...</div>}
-                  {error && <div className="text-red-600">Error loading users</div>}
-                  
+                  {error && (
+                    <div className="text-red-600">Error loading users</div>
+                  )}
+
                   {users && (
                     <div className="space-y-2">
                       {users.map((user) => (
-                        <div key={user.id} className="flex items-center justify-between p-3 bg-white rounded border">
+                        <div
+                          key={user.id}
+                          className="flex items-center justify-between p-3 bg-white rounded border"
+                        >
                           <div>
                             <div className="font-medium">{user.name}</div>
-                            <div className="text-sm text-gray-600">{user.email}</div>
+                            <div className="text-sm text-gray-600">
+                              {user.email}
+                            </div>
                           </div>
                           <Button
                             variant="destructive"
@@ -171,19 +192,27 @@ const DataFetching = () => {
                         type="text"
                         placeholder="Name"
                         value={newUser.name}
-                        onChange={(e) => setNewUser({...newUser, name: e.target.value})}
+                        onChange={(e) =>
+                          setNewUser({ ...newUser, name: e.target.value })
+                        }
                         className="w-full p-2 border rounded"
                       />
                       <input
                         type="email"
                         placeholder="Email"
                         value={newUser.email}
-                        onChange={(e) => setNewUser({...newUser, email: e.target.value})}
+                        onChange={(e) =>
+                          setNewUser({ ...newUser, email: e.target.value })
+                        }
                         className="w-full p-2 border rounded"
                       />
                       <Button
                         onClick={() => addUserMutation.mutate(newUser)}
-                        disabled={addUserMutation.isPending || !newUser.name || !newUser.email}
+                        disabled={
+                          addUserMutation.isPending ||
+                          !newUser.name ||
+                          !newUser.email
+                        }
                       >
                         <Plus className="mr-2 h-4 w-4" />
                         {addUserMutation.isPending ? "Adding..." : "Add User"}
@@ -212,7 +241,9 @@ const DataFetching = () => {
                         <Card key={post.id} className="border">
                           <CardContent className="p-4">
                             <h3 className="font-medium mb-2">{post.title}</h3>
-                            <p className="text-sm text-gray-600 line-clamp-2">{post.body}</p>
+                            <p className="text-sm text-gray-600 line-clamp-2">
+                              {post.body}
+                            </p>
                           </CardContent>
                         </Card>
                       ))}
@@ -223,7 +254,7 @@ const DataFetching = () => {
                     <CardContent className="p-4">
                       <h4 className="font-medium mb-2">Code Example:</h4>
                       <pre className="bg-gray-800 text-green-400 p-3 rounded text-sm overflow-x-auto">
-{`const fetchData = async () => {
+                        {`const fetchData = async () => {
   setIsLoading(true);
   try {
     const response = await fetch('/api/data');
@@ -257,8 +288,12 @@ const DataFetching = () => {
                       {effectData.map((comment: any) => (
                         <Card key={comment.id} className="border">
                           <CardContent className="p-4">
-                            <div className="font-medium mb-1">{comment.name}</div>
-                            <div className="text-sm text-gray-600 mb-2">{comment.email}</div>
+                            <div className="font-medium mb-1">
+                              {comment.name}
+                            </div>
+                            <div className="text-sm text-gray-600 mb-2">
+                              {comment.email}
+                            </div>
                             <p className="text-sm">{comment.body}</p>
                           </CardContent>
                         </Card>
@@ -270,7 +305,7 @@ const DataFetching = () => {
                     <CardContent className="p-4">
                       <h4 className="font-medium mb-2">Code Example:</h4>
                       <pre className="bg-gray-800 text-green-400 p-3 rounded text-sm overflow-x-auto">
-{`useEffect(() => {
+                        {`useEffect(() => {
   const fetchData = async () => {
     try {
       const response = await fetch('/api/comments');
@@ -303,48 +338,104 @@ const DataFetching = () => {
                   <table className="w-full border-collapse border border-gray-300">
                     <thead>
                       <tr className="bg-gray-50">
-                        <th className="border border-gray-300 p-3 text-left">Feature</th>
-                        <th className="border border-gray-300 p-3 text-left">React Query</th>
-                        <th className="border border-gray-300 p-3 text-left">Manual Fetch</th>
-                        <th className="border border-gray-300 p-3 text-left">useEffect</th>
+                        <th className="border border-gray-300 p-3 text-left">
+                          Feature
+                        </th>
+                        <th className="border border-gray-300 p-3 text-left">
+                          React Query
+                        </th>
+                        <th className="border border-gray-300 p-3 text-left">
+                          Manual Fetch
+                        </th>
+                        <th className="border border-gray-300 p-3 text-left">
+                          useEffect
+                        </th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr>
-                        <td className="border border-gray-300 p-3 font-medium">Caching</td>
-                        <td className="border border-gray-300 p-3 text-green-600">✅ Automatic</td>
-                        <td className="border border-gray-300 p-3 text-red-600">❌ Manual</td>
-                        <td className="border border-gray-300 p-3 text-red-600">❌ Manual</td>
+                        <td className="border border-gray-300 p-3 font-medium">
+                          Caching
+                        </td>
+                        <td className="border border-gray-300 p-3 text-green-600">
+                          ✅ Automatic
+                        </td>
+                        <td className="border border-gray-300 p-3 text-red-600">
+                          ❌ Manual
+                        </td>
+                        <td className="border border-gray-300 p-3 text-red-600">
+                          ❌ Manual
+                        </td>
                       </tr>
                       <tr className="bg-gray-50">
-                        <td className="border border-gray-300 p-3 font-medium">Background Updates</td>
-                        <td className="border border-gray-300 p-3 text-green-600">✅ Built-in</td>
-                        <td className="border border-gray-300 p-3 text-red-600">❌ Manual</td>
-                        <td className="border border-gray-300 p-3 text-red-600">❌ Manual</td>
+                        <td className="border border-gray-300 p-3 font-medium">
+                          Background Updates
+                        </td>
+                        <td className="border border-gray-300 p-3 text-green-600">
+                          ✅ Built-in
+                        </td>
+                        <td className="border border-gray-300 p-3 text-red-600">
+                          ❌ Manual
+                        </td>
+                        <td className="border border-gray-300 p-3 text-red-600">
+                          ❌ Manual
+                        </td>
                       </tr>
                       <tr>
-                        <td className="border border-gray-300 p-3 font-medium">Loading States</td>
-                        <td className="border border-gray-300 p-3 text-green-600">✅ Automatic</td>
-                        <td className="border border-gray-300 p-3 text-yellow-600">⚠️ Manual</td>
-                        <td className="border border-gray-300 p-3 text-yellow-600">⚠️ Manual</td>
+                        <td className="border border-gray-300 p-3 font-medium">
+                          Loading States
+                        </td>
+                        <td className="border border-gray-300 p-3 text-green-600">
+                          ✅ Automatic
+                        </td>
+                        <td className="border border-gray-300 p-3 text-yellow-600">
+                          ⚠️ Manual
+                        </td>
+                        <td className="border border-gray-300 p-3 text-yellow-600">
+                          ⚠️ Manual
+                        </td>
                       </tr>
                       <tr className="bg-gray-50">
-                        <td className="border border-gray-300 p-3 font-medium">Error Handling</td>
-                        <td className="border border-gray-300 p-3 text-green-600">✅ Built-in</td>
-                        <td className="border border-gray-300 p-3 text-yellow-600">⚠️ Manual</td>
-                        <td className="border border-gray-300 p-3 text-yellow-600">⚠️ Manual</td>
+                        <td className="border border-gray-300 p-3 font-medium">
+                          Error Handling
+                        </td>
+                        <td className="border border-gray-300 p-3 text-green-600">
+                          ✅ Built-in
+                        </td>
+                        <td className="border border-gray-300 p-3 text-yellow-600">
+                          ⚠️ Manual
+                        </td>
+                        <td className="border border-gray-300 p-3 text-yellow-600">
+                          ⚠️ Manual
+                        </td>
                       </tr>
                       <tr>
-                        <td className="border border-gray-300 p-3 font-medium">Mutations</td>
-                        <td className="border border-gray-300 p-3 text-green-600">✅ Optimistic Updates</td>
-                        <td className="border border-gray-300 p-3 text-yellow-600">⚠️ Basic</td>
-                        <td className="border border-gray-300 p-3 text-yellow-600">⚠️ Basic</td>
+                        <td className="border border-gray-300 p-3 font-medium">
+                          Mutations
+                        </td>
+                        <td className="border border-gray-300 p-3 text-green-600">
+                          ✅ Optimistic Updates
+                        </td>
+                        <td className="border border-gray-300 p-3 text-yellow-600">
+                          ⚠️ Basic
+                        </td>
+                        <td className="border border-gray-300 p-3 text-yellow-600">
+                          ⚠️ Basic
+                        </td>
                       </tr>
                       <tr className="bg-gray-50">
-                        <td className="border border-gray-300 p-3 font-medium">Devtools</td>
-                        <td className="border border-gray-300 p-3 text-green-600">✅ Excellent</td>
-                        <td className="border border-gray-300 p-3 text-red-600">❌ None</td>
-                        <td className="border border-gray-300 p-3 text-red-600">❌ None</td>
+                        <td className="border border-gray-300 p-3 font-medium">
+                          Devtools
+                        </td>
+                        <td className="border border-gray-300 p-3 text-green-600">
+                          ✅ Excellent
+                        </td>
+                        <td className="border border-gray-300 p-3 text-red-600">
+                          ❌ None
+                        </td>
+                        <td className="border border-gray-300 p-3 text-red-600">
+                          ❌ None
+                        </td>
                       </tr>
                     </tbody>
                   </table>

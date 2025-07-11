@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -14,7 +13,7 @@ const staticBlogPosts = [
     author: "Jane Smith",
     date: "2024-01-15",
     readTime: "5 min read",
-    category: "Tutorial"
+    category: "Tutorial",
   },
   {
     id: 2,
@@ -23,7 +22,7 @@ const staticBlogPosts = [
     author: "John Doe",
     date: "2024-01-10",
     readTime: "8 min read",
-    category: "Advanced"
+    category: "Advanced",
   },
   {
     id: 3,
@@ -32,8 +31,8 @@ const staticBlogPosts = [
     author: "Alice Johnson",
     date: "2024-01-05",
     readTime: "6 min read",
-    category: "Performance"
-  }
+    category: "Performance",
+  },
 ];
 
 const staticCompanyInfo = {
@@ -42,7 +41,7 @@ const staticCompanyInfo = {
   employees: "50-100",
   location: "San Francisco, CA",
   description: "We build amazing web applications using modern technologies.",
-  services: ["Web Development", "Mobile Apps", "Cloud Solutions", "Consulting"]
+  services: ["Web Development", "Mobile Apps", "Cloud Solutions", "Consulting"],
 };
 
 const Static = () => {
@@ -57,13 +56,17 @@ const Static = () => {
             </Button>
           </Link>
           <div className="flex items-center gap-3 mb-4">
-            <Badge variant="secondary" className="bg-purple-100 text-purple-800">
+            <h1 className="text-3xl font-bold">Static Content Examples</h1>
+            <Badge
+              variant="secondary"
+              className="bg-purple-100 text-purple-800"
+            >
               Static Generation
             </Badge>
-            <h1 className="text-3xl font-bold">Static Content Examples</h1>
           </div>
           <p className="text-gray-600">
-            This content would typically be generated at build time for optimal performance and SEO.
+            This content would typically be generated at build time for optimal
+            performance and SEO.
           </p>
         </div>
 
@@ -78,19 +81,33 @@ const Static = () => {
             <CardContent>
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <h3 className="text-xl font-semibold mb-4">{staticCompanyInfo.name}</h3>
-                  <p className="text-gray-600 mb-4">{staticCompanyInfo.description}</p>
+                  <h3 className="text-xl font-semibold mb-4">
+                    {staticCompanyInfo.name}
+                  </h3>
+                  <p className="text-gray-600 mb-4">
+                    {staticCompanyInfo.description}
+                  </p>
                   <div className="space-y-2 text-sm">
-                    <div><strong>Founded:</strong> {staticCompanyInfo.founded}</div>
-                    <div><strong>Employees:</strong> {staticCompanyInfo.employees}</div>
-                    <div><strong>Location:</strong> {staticCompanyInfo.location}</div>
+                    <div>
+                      <strong>Founded:</strong> {staticCompanyInfo.founded}
+                    </div>
+                    <div>
+                      <strong>Employees:</strong> {staticCompanyInfo.employees}
+                    </div>
+                    <div>
+                      <strong>Location:</strong> {staticCompanyInfo.location}
+                    </div>
                   </div>
                 </div>
                 <div>
                   <h4 className="font-semibold mb-2">Our Services</h4>
                   <div className="grid grid-cols-2 gap-2">
                     {staticCompanyInfo.services.map((service, index) => (
-                      <Badge key={index} variant="outline" className="justify-center">
+                      <Badge
+                        key={index}
+                        variant="outline"
+                        className="justify-center"
+                      >
                         {service}
                       </Badge>
                     ))}
@@ -114,9 +131,13 @@ const Static = () => {
                     <CardContent className="p-4">
                       <div className="flex justify-between items-start mb-2">
                         <Badge variant="secondary">{post.category}</Badge>
-                        <span className="text-sm text-gray-500">{post.readTime}</span>
+                        <span className="text-sm text-gray-500">
+                          {post.readTime}
+                        </span>
                       </div>
-                      <h3 className="text-lg font-semibold mb-2">{post.title}</h3>
+                      <h3 className="text-lg font-semibold mb-2">
+                        {post.title}
+                      </h3>
                       <p className="text-gray-600 mb-3">{post.excerpt}</p>
                       <div className="flex justify-between items-center text-sm text-gray-500">
                         <span>By {post.author}</span>
@@ -167,9 +188,11 @@ const Static = () => {
             <CardContent>
               <div className="space-y-4">
                 <div>
-                  <h4 className="font-semibold mb-2">In a Vite/React Context:</h4>
+                  <h4 className="font-semibold mb-2">
+                    In a Vite/React Context:
+                  </h4>
                   <pre className="bg-gray-800 text-green-400 p-4 rounded-lg text-sm overflow-x-auto">
-{`// Static data defined at build time
+                    {`// Static data defined at build time
 const staticData = {
   posts: [...],
   company: {...}
@@ -188,8 +211,10 @@ const StaticComponent = () => {
                   </pre>
                 </div>
                 <div className="text-sm text-gray-600">
-                  <strong>Note:</strong> In Next.js, this would be achieved using getStaticProps() or the app directory with static data.
-                  In Vite/React, we simulate this by having data defined at build time rather than fetched at runtime.
+                  <strong>Note:</strong> In Next.js, this would be achieved
+                  using getStaticProps() or the app directory with static data.
+                  In Vite/React, we simulate this by having data defined at
+                  build time rather than fetched at runtime.
                 </div>
               </div>
             </CardContent>

@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -12,7 +11,7 @@ const SPA = () => {
   const [userData, setUserData] = useState({
     name: "John Doe",
     email: "john@example.com",
-    preferences: { theme: "light", notifications: true }
+    preferences: { theme: "light", notifications: true },
   });
 
   const views = {
@@ -49,7 +48,7 @@ const SPA = () => {
             </Card>
           </div>
         </div>
-      )
+      ),
     },
     profile: {
       title: "Profile",
@@ -60,26 +59,30 @@ const SPA = () => {
           <div className="space-y-4">
             <div>
               <label className="block text-sm font-medium mb-1">Name</label>
-              <input 
-                type="text" 
+              <input
+                type="text"
                 value={userData.name}
-                onChange={(e) => setUserData({...userData, name: e.target.value})}
+                onChange={(e) =>
+                  setUserData({ ...userData, name: e.target.value })
+                }
                 className="w-full p-2 border rounded-lg"
               />
             </div>
             <div>
               <label className="block text-sm font-medium mb-1">Email</label>
-              <input 
-                type="email" 
+              <input
+                type="email"
                 value={userData.email}
-                onChange={(e) => setUserData({...userData, email: e.target.value})}
+                onChange={(e) =>
+                  setUserData({ ...userData, email: e.target.value })
+                }
                 className="w-full p-2 border rounded-lg"
               />
             </div>
             <Button>Save Changes</Button>
           </div>
         </div>
-      )
+      ),
     },
     settings: {
       title: "Settings",
@@ -90,12 +93,17 @@ const SPA = () => {
           <div className="space-y-4">
             <div className="flex items-center justify-between">
               <span>Theme</span>
-              <select 
+              <select
                 value={userData.preferences.theme}
-                onChange={(e) => setUserData({
-                  ...userData, 
-                  preferences: {...userData.preferences, theme: e.target.value}
-                })}
+                onChange={(e) =>
+                  setUserData({
+                    ...userData,
+                    preferences: {
+                      ...userData.preferences,
+                      theme: e.target.value,
+                    },
+                  })
+                }
                 className="p-2 border rounded"
               >
                 <option value="light">Light</option>
@@ -104,19 +112,24 @@ const SPA = () => {
             </div>
             <div className="flex items-center justify-between">
               <span>Email Notifications</span>
-              <input 
-                type="checkbox" 
+              <input
+                type="checkbox"
                 checked={userData.preferences.notifications}
-                onChange={(e) => setUserData({
-                  ...userData,
-                  preferences: {...userData.preferences, notifications: e.target.checked}
-                })}
+                onChange={(e) =>
+                  setUserData({
+                    ...userData,
+                    preferences: {
+                      ...userData.preferences,
+                      notifications: e.target.checked,
+                    },
+                  })
+                }
                 className="rounded"
               />
             </div>
           </div>
         </div>
-      )
+      ),
     },
     messages: {
       title: "Messages",
@@ -142,8 +155,8 @@ const SPA = () => {
             ))}
           </div>
         </div>
-      )
-    }
+      ),
+    },
   };
 
   return (
@@ -157,13 +170,14 @@ const SPA = () => {
             </Button>
           </Link>
           <div className="flex items-center gap-3 mb-4">
+            <h1 className="text-3xl font-bold">SPA Navigation</h1>
             <Badge variant="secondary" className="bg-green-100 text-green-800">
               Single Page Application
             </Badge>
-            <h1 className="text-3xl font-bold">SPA Navigation</h1>
           </div>
           <p className="text-gray-600">
-            Navigate between different views without page reloads. All content is managed client-side.
+            Navigate between different views without page reloads. All content
+            is managed client-side.
           </p>
         </div>
 
@@ -194,7 +208,9 @@ const SPA = () => {
 
           <Card className="lg:col-span-3">
             <CardHeader>
-              <CardTitle>{views[activeView as keyof typeof views].title}</CardTitle>
+              <CardTitle>
+                {views[activeView as keyof typeof views].title}
+              </CardTitle>
             </CardHeader>
             <CardContent>
               {views[activeView as keyof typeof views].content}
@@ -223,7 +239,7 @@ const SPA = () => {
               </TabsContent>
               <TabsContent value="code">
                 <pre className="bg-gray-800 text-green-400 p-4 rounded-lg text-sm overflow-x-auto">
-{`const [activeView, setActiveView] = useState("dashboard");
+                  {`const [activeView, setActiveView] = useState("dashboard");
 
 // Navigation without page reload
 <Button onClick={() => setActiveView("profile")}>

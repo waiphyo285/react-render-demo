@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -23,8 +22,10 @@ const CSR = () => {
   const generateRandomData = async () => {
     setIsLoading(true);
     // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    setRandomData(Array.from({ length: 10 }, () => Math.floor(Math.random() * 100)));
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+    setRandomData(
+      Array.from({ length: 10 }, () => Math.floor(Math.random() * 100))
+    );
     setIsLoading(false);
   };
 
@@ -39,13 +40,14 @@ const CSR = () => {
             </Button>
           </Link>
           <div className="flex items-center gap-3 mb-4">
+            <h1 className="text-3xl font-bold">CSR Examples</h1>
             <Badge variant="secondary" className="bg-blue-100 text-blue-800">
               Client-Side Rendering
             </Badge>
-            <h1 className="text-3xl font-bold">CSR Examples</h1>
           </div>
           <p className="text-gray-600">
-            These components render and update entirely in the browser after the initial page load.
+            These components render and update entirely in the browser after the
+            initial page load.
           </p>
         </div>
 
@@ -76,10 +78,12 @@ const CSR = () => {
                 <Button onClick={() => setCount(count - 1)}>-</Button>
                 <span className="text-2xl font-bold">{count}</span>
                 <Button onClick={() => setCount(count + 1)}>+</Button>
+
+                <Button variant="outline" onClick={() => setCount(0)}>
+                  Reset
+                </Button>
               </div>
-              <Button variant="outline" onClick={() => setCount(0)}>
-                Reset
-              </Button>
+
               <p className="text-sm text-gray-600 mt-2">
                 State managed entirely on the client side
               </p>
@@ -94,19 +98,19 @@ const CSR = () => {
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <Button 
-                onClick={generateRandomData} 
+              <Button
+                onClick={generateRandomData}
                 disabled={isLoading}
                 className="mb-4"
               >
                 {isLoading ? "Generating..." : "Generate Random Data"}
               </Button>
-              
+
               {randomData.length > 0 && (
                 <div className="grid grid-cols-5 gap-2">
                   {randomData.map((num, index) => (
-                    <div 
-                      key={index} 
+                    <div
+                      key={index}
                       className="bg-blue-100 p-2 rounded text-center font-mono"
                     >
                       {num}
@@ -126,7 +130,7 @@ const CSR = () => {
             </CardHeader>
             <CardContent>
               <pre className="bg-gray-800 text-green-400 p-4 rounded-lg text-sm overflow-x-auto">
-{`const [count, setCount] = useState(0);
+                {`const [count, setCount] = useState(0);
 const [currentTime, setCurrentTime] = useState(new Date());
 
 useEffect(() => {

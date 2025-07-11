@@ -1,6 +1,11 @@
-
 import { Link } from "react-router-dom";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Code, Globe, Zap, Database, FileText } from "lucide-react";
 
@@ -10,10 +15,11 @@ const Index = () => {
       <div className="container mx-auto px-4 py-8">
         <div className="text-center mb-12">
           <h1 className="text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-4">
-            React Rendering Patterns Demo
+            React Rendering Patterns
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Explore different rendering strategies in React: CSR, SPA, Static Generation, and Data Fetching patterns
+            Explore different rendering strategies in React: CSR, SPA, Static
+            Generation, and Data Fetching patterns
           </p>
         </div>
 
@@ -25,17 +31,24 @@ const Index = () => {
                   <Zap className="h-6 w-6 text-blue-600" />
                 </div>
                 <div>
-                  <CardTitle className="text-lg">Client-Side Rendering</CardTitle>
-                  <CardDescription>Dynamic content rendered in browser</CardDescription>
+                  <CardTitle className="text-lg">
+                    Client-Side Rendering
+                  </CardTitle>
+                  <CardDescription>
+                    Dynamic content rendered in browser
+                  </CardDescription>
                 </div>
               </div>
             </CardHeader>
             <CardContent>
               <p className="text-sm text-gray-600 mb-4">
-                Interactive components that render and update entirely on the client side.
+                Interactive components that render and update entirely on the
+                client side.
               </p>
               <Link to="/csr">
-                <Button className="w-full">View CSR Example</Button>
+                <Button className="w-full bg-blue-600 hover:bg-blue-700">
+                  View CSR Example
+                </Button>
               </Link>
             </CardContent>
           </Card>
@@ -48,7 +61,9 @@ const Index = () => {
                 </div>
                 <div>
                   <CardTitle className="text-lg">Single Page App</CardTitle>
-                  <CardDescription>Seamless navigation without page reloads</CardDescription>
+                  <CardDescription>
+                    Seamless navigation without page reloads
+                  </CardDescription>
                 </div>
               </div>
             </CardHeader>
@@ -57,7 +72,9 @@ const Index = () => {
                 Multiple routes and views managed entirely on the client side.
               </p>
               <Link to="/spa">
-                <Button className="w-full bg-green-600 hover:bg-green-700">View SPA Example</Button>
+                <Button className="w-full bg-green-600 hover:bg-green-700">
+                  View SPA Example
+                </Button>
               </Link>
             </CardContent>
           </Card>
@@ -76,10 +93,13 @@ const Index = () => {
             </CardHeader>
             <CardContent>
               <p className="text-sm text-gray-600 mb-4">
-                Static content that's built at compile time for optimal performance.
+                Static content that's built at compile time for optimal
+                performance.
               </p>
               <Link to="/static">
-                <Button className="w-full bg-purple-600 hover:bg-purple-700">View Static Example</Button>
+                <Button className="w-full bg-purple-600 hover:bg-purple-700">
+                  View Static Example
+                </Button>
               </Link>
             </CardContent>
           </Card>
@@ -92,7 +112,9 @@ const Index = () => {
                 </div>
                 <div>
                   <CardTitle className="text-lg">Data Fetching</CardTitle>
-                  <CardDescription>Various data loading patterns</CardDescription>
+                  <CardDescription>
+                    Various data loading patterns
+                  </CardDescription>
                 </div>
               </div>
             </CardHeader>
@@ -101,7 +123,9 @@ const Index = () => {
                 Different approaches to fetching and managing data in React.
               </p>
               <Link to="/data-fetching">
-                <Button className="w-full bg-orange-600 hover:bg-orange-700">View Data Examples</Button>
+                <Button className="w-full bg-orange-600 hover:bg-orange-700">
+                  View Data Examples
+                </Button>
               </Link>
             </CardContent>
           </Card>
@@ -114,7 +138,9 @@ const Index = () => {
                 </div>
                 <div>
                   <CardTitle className="text-lg">Hybrid Patterns</CardTitle>
-                  <CardDescription>Combining multiple approaches</CardDescription>
+                  <CardDescription>
+                    Combining multiple approaches
+                  </CardDescription>
                 </div>
               </div>
             </CardHeader>
@@ -123,16 +149,12 @@ const Index = () => {
                 Real-world examples combining different rendering strategies.
               </p>
               <Link to="/hybrid">
-                <Button className="w-full bg-red-600 hover:bg-red-700">View Hybrid Example</Button>
+                <Button className="w-full bg-red-600 hover:bg-red-700">
+                  View Hybrid Example
+                </Button>
               </Link>
             </CardContent>
           </Card>
-        </div>
-
-        <div className="text-center">
-          <p className="text-gray-600 text-sm">
-            Each example includes detailed explanations and code samples
-          </p>
         </div>
       </div>
     </div>
