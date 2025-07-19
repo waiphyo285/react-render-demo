@@ -263,8 +263,8 @@ const Index = () => {
               </CardHeader>
               <CardContent>
                 <p className="text-sm text-gray-600">
-                  Mostly pre-cooked, but popular dishes get topped up more 
-                  frequently. Best of both worlds.
+                  Cooked beforehand, everyone gets the same food, but some get 
+                  it warmer than others. Smart regeneration keeps popular content fresh.
                 </p>
               </CardContent>
             </Card>

@@ -30,8 +30,8 @@ const CSR = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 p-4">
-      <div className="container mx-auto max-w-4xl">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+      <div className="container mx-auto p-4">
         <div className="mb-6">
           <Link to="/">
             <Button variant="outline" className="mb-4">
