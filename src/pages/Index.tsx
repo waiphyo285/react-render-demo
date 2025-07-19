@@ -7,7 +7,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Code, Globe, Zap, Database, FileText } from "lucide-react";
+import { Code, Globe, Zap, Database, FileText, ChefHat, Utensils, Coffee } from "lucide-react";
 
 const Index = () => {
   return (
@@ -155,6 +155,168 @@ const Index = () => {
               </Link>
             </CardContent>
           </Card>
+        </div>
+
+        {/* Cooking Analogies Section */}
+        <div className="mb-8">
+          <div className="text-center mb-8">
+            <div className="flex items-center justify-center gap-2 mb-4">
+              <ChefHat className="h-8 w-8 text-amber-600" />
+              <h2 className="text-3xl font-bold text-gray-800">
+                Rendering vs. Cooking
+              </h2>
+              <Utensils className="h-8 w-8 text-amber-600" />
+            </div>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Understanding web rendering patterns through familiar cooking experiences
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <Card className="border-l-4 border-l-blue-500 hover:shadow-lg transition-shadow">
+              <CardHeader>
+                <div className="flex items-center gap-3">
+                  <div className="p-2 bg-red-100 rounded-lg">
+                    <Coffee className="h-6 w-6 text-red-600" />
+                  </div>
+                  <div>
+                    <CardTitle className="text-lg text-blue-600">
+                      CSR → Hotpot 🥘
+                    </CardTitle>
+                    <CardDescription>
+                      You do most of the work
+                    </CardDescription>
+                  </div>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm text-gray-600">
+                  Raw ingredients arrive, you cook them yourself. Highly personalized 
+                  and interactive, but slower initial setup.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-l-4 border-l-green-500 hover:shadow-lg transition-shadow">
+              <CardHeader>
+                <div className="flex items-center gap-3">
+                  <div className="p-2 bg-green-100 rounded-lg">
+                    <ChefHat className="h-6 w-6 text-green-600" />
+                  </div>
+                  <div>
+                    <CardTitle className="text-lg text-green-600">
+                      SSR → Made to Order 🍽️
+                    </CardTitle>
+                    <CardDescription>
+                      Kitchen does the work
+                    </CardDescription>
+                  </div>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm text-gray-600">
+                  Chef prepares your meal fresh when you order. Personalized 
+                  results but takes time as each meal is prepared individually.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-l-4 border-l-purple-500 hover:shadow-lg transition-shadow">
+              <CardHeader>
+                <div className="flex items-center gap-3">
+                  <div className="p-2 bg-purple-100 rounded-lg">
+                    <Utensils className="h-6 w-6 text-purple-600" />
+                  </div>
+                  <div>
+                    <CardTitle className="text-lg text-purple-600">
+                      SSG → Buffet 🍱
+                    </CardTitle>
+                    <CardDescription>
+                      Pre-cooked meals
+                    </CardDescription>
+                  </div>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm text-gray-600">
+                  Everything prepared beforehand. Same for everyone, but instant 
+                  serving and efficient for crowds.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-l-4 border-l-orange-500 hover:shadow-lg transition-shadow">
+              <CardHeader>
+                <div className="flex items-center gap-3">
+                  <div className="p-2 bg-orange-100 rounded-lg">
+                    <Coffee className="h-6 w-6 text-orange-600" />
+                  </div>
+                  <div>
+                    <CardTitle className="text-lg text-orange-600">
+                      ISG → Fresh Buffet 🔄
+                    </CardTitle>
+                    <CardDescription>
+                      Smart refreshing
+                    </CardDescription>
+                  </div>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm text-gray-600">
+                  Mostly pre-cooked, but popular dishes get topped up more 
+                  frequently. Best of both worlds.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-l-4 border-l-red-500 hover:shadow-lg transition-shadow">
+              <CardHeader>
+                <div className="flex items-center gap-3">
+                  <div className="p-2 bg-red-100 rounded-lg">
+                    <ChefHat className="h-6 w-6 text-red-600" />
+                  </div>
+                  <div>
+                    <CardTitle className="text-lg text-red-600">
+                      Streaming → BBQ Chef 🔥
+                    </CardTitle>
+                    <CardDescription>
+                      Live cooking show
+                    </CardDescription>
+                  </div>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm text-gray-600">
+                  Chef starts cooking and serves pieces as they're ready. 
+                  Progressive delivery - no waiting for completion.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-l-4 border-l-amber-500 hover:shadow-lg transition-shadow">
+              <CardHeader>
+                <div className="flex items-center gap-3">
+                  <div className="p-2 bg-amber-100 rounded-lg">
+                    <Utensils className="h-6 w-6 text-amber-600" />
+                  </div>
+                  <div>
+                    <CardTitle className="text-lg text-amber-600">
+                      Hybrid → Food Court 🥡
+                    </CardTitle>
+                    <CardDescription>
+                      Multiple cooking styles
+                    </CardDescription>
+                  </div>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm text-gray-600">
+                  Different vendors use different methods. Mix and match 
+                  based on requirements - the real-world solution.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
         </div>
       </div>
     </div>
