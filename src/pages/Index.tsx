@@ -181,7 +181,7 @@ const Index = () => {
                   </div>
                   <div>
                     <CardTitle className="text-lg text-blue-600">
-                      CSR → Hotpot 🥘
+                      CSR → Hotpot
                     </CardTitle>
                     <CardDescription>
                       You do most of the work
@@ -205,7 +205,7 @@ const Index = () => {
                   </div>
                   <div>
                     <CardTitle className="text-lg text-green-600">
-                      SSR → Made to Order 🍽️
+                      SSR → Made to Order 
                     </CardTitle>
                     <CardDescription>
                       Kitchen does the work
@@ -229,7 +229,7 @@ const Index = () => {
                   </div>
                   <div>
                     <CardTitle className="text-lg text-purple-600">
-                      SSG → Buffet 🍱
+                      SSG → Buffet
                     </CardTitle>
                     <CardDescription>
                       Pre-cooked meals
@@ -253,7 +253,7 @@ const Index = () => {
                   </div>
                   <div>
                     <CardTitle className="text-lg text-orange-600">
-                      ISG → Fresh Buffet 🔄
+                      ISG → Fresh Buffet
                     </CardTitle>
                     <CardDescription>
                       Smart refreshing
@@ -277,7 +277,7 @@ const Index = () => {
                   </div>
                   <div>
                     <CardTitle className="text-lg text-red-600">
-                      Streaming → BBQ Chef 🔥
+                      Streaming → BBQ Chef
                     </CardTitle>
                     <CardDescription>
                       Live cooking show
@@ -301,7 +301,7 @@ const Index = () => {
                   </div>
                   <div>
                     <CardTitle className="text-lg text-amber-600">
-                      Hybrid → Food Court 🥡
+                      Hybrid → Food Court
                     </CardTitle>
                     <CardDescription>
                       Multiple cooking styles
