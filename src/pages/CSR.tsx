@@ -39,9 +39,9 @@ const CSR = () => {
               Back to Home
             </Button>
           </Link>
-          <div className="flex items-center gap-3 mb-4">
-            <h1 className="text-3xl font-bold">CSR Examples</h1>
-            <Badge variant="secondary" className="bg-blue-100 text-blue-800">
+          <div className="flex flex-col sm:flex-row sm:items-center gap-3 mb-4">
+            <h1 className="text-2xl sm:text-3xl font-bold">CSR Examples</h1>
+            <Badge variant="secondary" className="bg-blue-100 text-blue-800 w-fit">
               Client-Side Rendering
             </Badge>
           </div>
@@ -74,11 +74,12 @@ const CSR = () => {
               <CardTitle>Interactive Counter</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="flex items-center gap-4 mb-4">
-                <Button onClick={() => setCount(count - 1)}>-</Button>
-                <span className="text-2xl font-bold">{count}</span>
-                <Button onClick={() => setCount(count + 1)}>+</Button>
-
+              <div className="flex flex-wrap items-center gap-4 mb-4">
+                <div className="flex items-center gap-4">
+                  <Button onClick={() => setCount(count - 1)}>-</Button>
+                  <span className="text-2xl font-bold">{count}</span>
+                  <Button onClick={() => setCount(count + 1)}>+</Button>
+                </div>
                 <Button variant="outline" onClick={() => setCount(0)}>
                   Reset
                 </Button>
@@ -107,11 +108,11 @@ const CSR = () => {
               </Button>
 
               {randomData.length > 0 && (
-                <div className="grid grid-cols-5 gap-2">
+                <div className="grid grid-cols-3 sm:grid-cols-5 gap-2">
                   {randomData.map((num, index) => (
                     <div
                       key={index}
-                      className="bg-blue-100 p-2 rounded text-center font-mono"
+                      className="bg-blue-100 p-2 rounded text-center font-mono text-sm sm:text-base"
                     >
                       {num}
                     </div>
@@ -129,7 +130,7 @@ const CSR = () => {
               <CardTitle>Code Example</CardTitle>
             </CardHeader>
             <CardContent>
-              <pre className="bg-gray-800 text-green-400 p-4 rounded-lg text-sm overflow-x-auto">
+              <pre className="bg-gray-800 text-green-400 p-3 sm:p-4 rounded-lg text-xs sm:text-sm overflow-x-auto whitespace-pre-wrap break-all">
                 {`const [count, setCount] = useState(0);
 const [currentTime, setCurrentTime] = useState(new Date());
 

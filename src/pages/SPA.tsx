@@ -169,9 +169,9 @@ const SPA = () => {
               Back to Home
             </Button>
           </Link>
-          <div className="flex items-center gap-3 mb-4">
-            <h1 className="text-3xl font-bold">SPA Navigation</h1>
-            <Badge variant="secondary" className="bg-green-100 text-green-800">
+          <div className="flex flex-col sm:flex-row sm:items-center gap-3 mb-4">
+            <h1 className="text-2xl sm:text-3xl font-bold">SPA Navigation</h1>
+            <Badge variant="secondary" className="bg-green-100 text-green-800 w-fit">
               Single Page Application
             </Badge>
           </div>
@@ -181,24 +181,25 @@ const SPA = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
           <Card className="lg:col-span-1">
             <CardHeader>
               <CardTitle>Navigation</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="space-y-2">
+              <div className="grid grid-cols-2 lg:grid-cols-1 gap-2">
                 {Object.entries(views).map(([key, view]) => {
                   const Icon = view.icon;
                   return (
                     <Button
                       key={key}
                       variant={activeView === key ? "default" : "ghost"}
-                      className="w-full justify-start"
+                      className="w-full justify-start text-sm lg:text-base"
                       onClick={() => setActiveView(key)}
                     >
                       <Icon className="mr-2 h-4 w-4" />
-                      {view.title}
+                      <span className="hidden sm:inline">{view.title}</span>
+                      <span className="sm:hidden">{view.title.split(' ')[0]}</span>
                     </Button>
                   );
                 })}
@@ -238,7 +239,7 @@ const SPA = () => {
                 </ul>
               </TabsContent>
               <TabsContent value="code">
-                <pre className="bg-gray-800 text-green-400 p-4 rounded-lg text-sm overflow-x-auto">
+                <pre className="bg-gray-800 text-green-400 p-3 sm:p-4 rounded-lg text-xs sm:text-sm overflow-x-auto whitespace-pre-wrap break-all">
                   {`const [activeView, setActiveView] = useState("dashboard");
 
 // Navigation without page reload

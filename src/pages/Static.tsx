@@ -55,11 +55,11 @@ const Static = () => {
               Back to Home
             </Button>
           </Link>
-          <div className="flex items-center gap-3 mb-4">
-            <h1 className="text-3xl font-bold">Static Content Examples</h1>
+          <div className="flex flex-col sm:flex-row sm:items-center gap-3 mb-4">
+            <h1 className="text-2xl sm:text-3xl font-bold">Static Content Examples</h1>
             <Badge
               variant="secondary"
-              className="bg-purple-100 text-purple-800"
+              className="bg-purple-100 text-purple-800 w-fit"
             >
               Static Generation
             </Badge>
@@ -79,12 +79,12 @@ const Static = () => {
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="grid md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <h3 className="text-xl font-semibold mb-4">
+                  <h3 className="text-lg sm:text-xl font-semibold mb-4">
                     {staticCompanyInfo.name}
                   </h3>
-                  <p className="text-gray-600 mb-4">
+                  <p className="text-gray-600 mb-4 text-sm sm:text-base">
                     {staticCompanyInfo.description}
                   </p>
                   <div className="space-y-2 text-sm">
@@ -101,12 +101,12 @@ const Static = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold mb-2">Our Services</h4>
-                  <div className="grid grid-cols-2 gap-2">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                     {staticCompanyInfo.services.map((service, index) => (
                       <Badge
                         key={index}
                         variant="outline"
-                        className="justify-center"
+                        className="justify-center text-xs sm:text-sm p-2"
                       >
                         {service}
                       </Badge>
@@ -191,7 +191,7 @@ const Static = () => {
                   <h4 className="font-semibold mb-2">
                     In a Vite/React Context:
                   </h4>
-                  <pre className="bg-gray-800 text-green-400 p-4 rounded-lg text-sm overflow-x-auto">
+                  <pre className="bg-gray-800 text-green-400 p-3 sm:p-4 rounded-lg text-xs sm:text-sm overflow-x-auto whitespace-pre-wrap break-all">
                     {`// Static data defined at build time
 const staticData = {
   posts: [...],
